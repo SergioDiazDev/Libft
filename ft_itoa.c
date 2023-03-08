@@ -6,7 +6,7 @@
 /*   By: sdiaz-ru <sdiaz-ru@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 00:46:50 by sdiaz-ru          #+#    #+#             */
-/*   Updated: 2023/03/08 13:28:41 by sdiaz-ru         ###   ########.fr       */
+/*   Updated: 2023/03/08 19:37:50 by sdiaz-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ static char	*ft_loadstr( long n, long size)
 {
 	char		*str;
 
-	str = (char *)malloc((size + 1) * sizeof(char));
+	str = ft_calloc((size + 2), sizeof(char));
 	if (str == NULL)
 		return (NULL);
-	str[size--] = '\0';
+	size--;
 	if (n < 0)
 	{
 		str[0] = '-';
@@ -43,11 +43,10 @@ char	*ft_itoa(int n)
 	aux = n;
 	if (n == 0)
 	{
-		str = (char *)malloc((2) * sizeof(char));
+		str = ft_calloc((2), sizeof(char));
 		if (str == NULL)
 			return (NULL);
 		str[0] = '0';
-		str[1] = '\0';
 		return (str);
 	}
 	if (n < 0)
