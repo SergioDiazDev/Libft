@@ -23,18 +23,18 @@ BONUS_OBJ		=	$(BONUS:.c=.o)
 all: $(NAME)
 
 $(NAME):	$(OBJ)
-			$(AR) $(NAME) $(OBJ)
+			@$(AR) $(NAME) $(OBJ)
 
 bonus:	$(OBJ) $(BONUS_OBJ)
-		$(AR) $(NAME) $(OBJ) $(BONUS_OBJ)
+		@$(AR) $(NAME) $(OBJ) $(BONUS_OBJ)
 
 re:
 		fclean all
 
 clean: 
-		$(RM) $(OBJ) $(BONUS_OBJ)
+		@$(RM) $(OBJ) $(BONUS_OBJ)
 
 fclean:	clean
-		$(RM) $(NAME)
+		@$(RM) $(NAME)
 
 .PHONY: all re clean fclean bonus
