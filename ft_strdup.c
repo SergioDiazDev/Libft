@@ -6,7 +6,7 @@
 /*   By: sdiaz-ru <sdiaz-ru@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 12:33:12 by sdiaz-ru          #+#    #+#             */
-/*   Updated: 2023/03/08 12:50:41 by sdiaz-ru         ###   ########.fr       */
+/*   Updated: 2023/04/10 01:25:37 by sdiaz-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ char	*ft_strdup(const char *s)
 		if (ft_strlen(aux) == ft_strlen(s))
 			return (aux);
 	}
-	return (aux = ft_calloc(1, sizeof(char)));
+	return (NULL);
 }
