@@ -6,7 +6,7 @@
 /*   By: sdiaz-ru <sdiaz-ru@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 00:46:50 by sdiaz-ru          #+#    #+#             */
-/*   Updated: 2023/03/08 19:37:50 by sdiaz-ru         ###   ########.fr       */
+/*   Updated: 2023/04/10 01:01:55 by sdiaz-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static char	*ft_loadstr( long n, long size)
 {
 	char		*str;
 
-	str = ft_calloc((size + 2), sizeof(char));
+	str = ft_calloc((size + 1), sizeof(char));
 	if (str == NULL)
 		return (NULL);
 	size--;
