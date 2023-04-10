@@ -6,7 +6,7 @@
 /*   By: sdiaz-ru <sdiaz-ru@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 10:07:40 by sdiaz-ru          #+#    #+#             */
-/*   Updated: 2023/03/08 19:31:34 by sdiaz-ru         ###   ########.fr       */
+/*   Updated: 2023/04/10 15:06:54 by sdiaz-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_count_words(char const *s, char c)
 	int	words;
 
 	i = 0;
-	words = 0;
+	words = 1;
 	if (s[i] != c)
 		words++;
 	while (s[i])
@@ -27,7 +27,7 @@ int	ft_count_words(char const *s, char c)
 			words++;
 		i++;
 	}
-	return (words + 1);
+	return (words);
 }
 
 int	next_del(const char *s, char c)
@@ -53,6 +53,8 @@ char	**ft_split_words(char **arr, const char *s, const char c)
 		if (*s)
 		{
 			del_pos = next_del(s, c);
+			if (!del_pos)
+				break ;
 			arr[i] = ft_calloc(del_pos + 1, sizeof(char));
 			if (!arr[i])
 				return (NULL);
@@ -67,9 +69,11 @@ char	**ft_split_words(char **arr, const char *s, const char c)
 char	**ft_split(char const *s, char c)
 {
 	char	**arr;
+	int		count;
 
-	arr = ft_calloc(ft_count_words(s, c), sizeof(char *));
+	count = ft_count_words(s, c);
+	arr = ft_calloc(count, sizeof(char *));
 	if (!arr)
-		return (NULL);
+		return (free(arr), NULL);
 	return (ft_split_words(arr, s, c));
 }
