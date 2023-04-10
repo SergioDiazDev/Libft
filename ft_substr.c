@@ -6,7 +6,7 @@
 /*   By: sdiaz-ru <sdiaz-ru@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 09:28:26 by sdiaz-ru          #+#    #+#             */
-/*   Updated: 2023/03/08 12:37:53 by sdiaz-ru         ###   ########.fr       */
+/*   Updated: 2023/04/10 11:54:11 by sdiaz-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ char	*ft_substr(char const *s, unsigned int start, t_size_t len)
 	t_size_t	i;
 
 	len_s = ft_strlen(s);
-	if (!s || start > len_s)
+	if (!s || start > len_s || !len)
 		return (aux = ft_calloc(1, sizeof(char)));
-	if (len > len_s)
-		len = len_s;
+	if (len > len_s - start)
+		len = len_s - start;
 	aux = ft_calloc(len + 1, sizeof(char));
 	if (aux == NULL)
 		return (NULL);
